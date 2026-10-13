@@ -1138,14 +1138,13 @@ static void slim_video_setting(void)
 //#define s5k4h7yxFRONT_I2CBUS    (4)
 
 #if S5K4H7_OTP
-double pow2(double a,int b)
+static unsigned int pow2(unsigned int a, int b)
 {
-	double c=0.0;
-	int i = 0;
-	for (i=1;i<b;i++){
-		c = a*b;
-	}
-	return c;
+    unsigned int c = 1;
+    int i;
+    for (i = 0; i < b; i++)
+        c *= a;
+    return c;
 }
 int GetCRC1(unsigned char *Data, unsigned int checksum_start,unsigned int Len)
 {
